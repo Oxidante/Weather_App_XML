@@ -2,4 +2,11 @@
     <string name="app_name">WeatherAppXML</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="data">14/05/2023 19:40</string>
+    <string name="city">Екатеринбург</string>
+    <string name="temp">20\u2103</string>
+    <string name="condition">Sunny</string>
+    <string name="min_max_temp">20\u2103/30\u2103</string>
+    <string name="hours">HOURS</string>
+    <string name="days">DAYS</string>
 </resources>
