@@ -10,10 +10,17 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.FragmentActivity
 import com.example.weatherappxml.R
+import com.example.weatherappxml.adapters.VpAdapter
 import com.example.weatherappxml.databinding.FragmentMainBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainFragment : Fragment() {
+    private val fList = listOf(
+        HoursFragment.newInstance(),
+        DaysFragment.newInstance()
+    )
     private lateinit var pLauncher: ActivityResultLauncher<String>
     private lateinit var binding: FragmentMainBinding
 
@@ -23,6 +30,16 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    // Логика переключеня часы/день
+    private fun init() = with(binding){
+        val adapter = VpAdapter(activity as FragmentActivity, fList)
+        vp.adapter = adapter
+        val tList = listOf(getString(R.string.hours), getString(R.string.days))
+        TabLayoutMediator(tabLayout, vp){
+            tab, pos -> tab.text = tList[pos]
+        }.attach()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
