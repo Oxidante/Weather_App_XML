@@ -41,6 +41,6 @@ class WeatherAdapter : ListAdapter<WeatherModel, WeatherAdapter.Holder>(Comparat
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(getItem(position))
     }
 }
